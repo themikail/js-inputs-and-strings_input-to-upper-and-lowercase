@@ -14,6 +14,15 @@ Hint: Access the value by using `.value` on the input element
 
 const input = document.querySelector('[data-js="first-input"]');
 const uppercaseButton = document.querySelector('[data-js="button-uppercase"]');
+const lowercaseButton = document.createElement("button");
+lowercaseButton.textContent = "↓";
+lowercaseButton.setAttribute("type", "button");
+lowercaseButton.setAttribute("data-js", "button-lowercase");
+input.parentNode.insertBefore(lowercaseButton, input.nextSibling);
+
+lowercaseButton.addEventListener("click", () => {
+  input.value = input.value.toLowerCase();
+});
 
 uppercaseButton.addEventListener("click", () => {
   input.value = input.value.toUpperCase();
